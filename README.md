@@ -34,7 +34,7 @@ App desarrollada en React Native 0.72 (typescript)
 
 - Imagen por defecto: como la api no propociona imágenes de pilotos o de circuitos, y es inviable hardcodear imágenes para todos los datos de la api, sería buena idea tener unas imágenes por defecto para cada tipo de dato: Circuito, piloto, temporada, escudería...
 
-- Preferencias temporales: popom popom 
+- Preferencias temporales:
 
 ## Requisitos
 
