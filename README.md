@@ -28,4 +28,4 @@ App desarrollada en React Native 0.72 (typescript)
 
  - Pilotos/Constructor a seguir: sistema de favoritos, muy visto, pero es un recurso sencillo.
 
- - Próxima Carrera: mostrar en el inicio de la app el tiempo restante para la próxima carrera, así como datos/imagen del circuito.
+ - Próxima Carrera: mostrar en el inicio de la app el tiempo restante para la próxima carrera, así como datos/imagen del circuito.popopopop
