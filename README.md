@@ -20,4 +20,12 @@ App desarrollada en React Native 0.72 (typescript)
 
 - API de F1 a usar (en principio) : https://ergast.com/mrd/
 
+- Para cualquier tipo de persistencia yo utilizaría SQLite2 simplemente porque es más completa y maleable por comandos SQL.
 
+## Ideas
+ 
+ - Dream team: añade un constructor y dos pilotos, obtén el resultado de puntos de ambos pilotos y como iría dicho equipo en la temporada actual (nos limitamos a hacer la suma de puntos y a introducirlo donde toque, sin tener en cuenta que esos 2 pilotos no obtendrian puntos para el resto de equipos de la clasificación). Este equipo se puede guardar (tener más de un equipo [?]).
+
+ - Pilotos/Constructor a seguir: sistema de favoritos, muy visto, pero es un recurso sencillo.
+
+ - Próxima Carrera: mostrar en el inicio de la app el tiempo restante para la próxima carrera, así como datos/imagen del circuito.
