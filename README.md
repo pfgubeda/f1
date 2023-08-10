@@ -28,4 +28,22 @@ App desarrollada en React Native 0.72 (typescript)
 
  - Pilotos/Constructor a seguir: sistema de favoritos, muy visto, pero es un recurso sencillo.
 
- - Próxima Carrera: mostrar en el inicio de la app el tiempo restante para la próxima carrera, así como datos/imagen del circuito.popopopop
+ - Próxima Carrera: mostrar en el inicio de la app el tiempo restante para la próxima carrera, así como datos/imagen del circuito.
+
+ - Historial de piloto: mostrar la posición de un piloto concreto (por nombre o por id) en sus últimas 5-10 carreras (número fijo). Si es podio, color que resalte el buen resultado (verde) y así sucesivamente hasta el último lugar. Si es NF, color negro, por ejemplo.
+
+- Imagen por defecto: como la api no propociona imágenes de pilotos o de circuitos, y es inviable hardcodear imágenes para todos los datos de la api, sería buena idea tener unas imágenes por defecto para cada tipo de dato: Circuito, piloto, temporada, escudería...
+
+- Preferencias temporales: popom popom 
+
+## Requisitos
+
+Marcar los requisitos que se vayan cumpliendo
+
+- Utilizar la versión 0.71 de React Native. ✓
+- Utilizar FlatList o SectionList
+- Hacer llamadas a un backend usando fetch u otra librería.
+- Almacenar algo en persistencia: caché o preferencias con AsyncStorage, o una base de datos con React Native SQLite 2.
+- Introducir navegación de cualquier tipo (stack o tab bar) con React Navigation. ✓
+- Añadir animaciones imperativas o declarativas.
+- Crear uno o más módulos nativos
