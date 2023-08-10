@@ -1,10 +1,12 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import React, {Component} from 'react';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FavouritesScreen from './screens/FavouritesScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,16 +14,59 @@ const styles = StyleSheet.create({
   },
 });
 
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <NavigationContainer>
-        <Tab.Navigator>
+interface AppProps {}
+
+interface AppState {
+  readonly ready: boolean;
+}
+export default class App extends Component<AppProps, AppState> {
+  private homeStack!: () => any;
+  private favouritesStack!: () => any;
+  private mainTab!: () => any;
+  private navigationContainer!: () => any;
+
+  constructor(props: AppProps) {
+    super(props);
+
+    this.state = {
+      ready: false,
+    };
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem('lastSelectedTab').then(lastSelectedTab => {
+      this.createMainNavigation(lastSelectedTab ?? undefined);
+    });
+  }
+
+  createMainNavigation(lastSelectedTab?: string) {
+    this.homeStack = () => (
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    );
+    this.favouritesStack = () => {
+      return (
+        <Stack.Navigator>
+          <Stack.Screen name="Favourites" component={FavouritesScreen} />
+        </Stack.Navigator>
+      );
+    };
+    this.mainTab = () => {
+      function tabBarOnPress(tabName: string) {
+        return () => {
+          AsyncStorage.setItem('lastSelectedTab', tabName);
+        };
+      }
+      return (
+        <Tab.Navigator initialRouteName={lastSelectedTab}>
           <Tab.Screen
             name="Home"
-            component={HomeScreen}
+            component={this.homeStack}
+            listeners={{tabPress: tabBarOnPress('Home')}}
             options={{
               headerShown: false,
               tabBarLabel: 'Home',
@@ -32,7 +77,8 @@ const App = () => {
           />
           <Tab.Screen
             name="Favorites"
-            component={FavouritesScreen}
+            component={this.favouritesStack}
+            listeners={{tabPress: tabBarOnPress('Favorites')}}
             options={{
               headerShown: false,
               tabBarLabel: 'Favorites',
@@ -42,8 +88,21 @@ const App = () => {
             }}
           />
         </Tab.Navigator>
-      </NavigationContainer>
-    </SafeAreaView>
-  );
-};
-export default App;
+      );
+    };
+
+    this.navigationContainer = () => {
+      return (
+        <NavigationContainer>
+          <SafeAreaView style={styles.container}>{this.mainTab()}</SafeAreaView>
+        </NavigationContainer>
+      );
+    };
+
+    this.setState({ready: true});
+  }
+
+  render() {
+    return this.state.ready ? <this.navigationContainer /> : <View />;
+  }
+}
