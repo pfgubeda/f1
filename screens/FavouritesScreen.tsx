@@ -1,12 +1,31 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
+import DriverDetails from '../components/DriverDetails';
+import CurrentDriverStandings from '../components/CurrentDriverStandings';
 
-export default class FavouritesScreen extends Component {
+interface CurrentDriverStandingsScreenProps {}
+interface CurrentDriverStandingsScreenState {
+  readonly ready: boolean;
+}
+const Stack = createStackNavigator();
+export default class CurrentDriverStandingsScreen extends Component<
+  CurrentDriverStandingsScreenProps,
+  CurrentDriverStandingsScreenState
+> {
+  constructor(props: CurrentDriverStandingsScreenProps) {
+    super(props);
+    this.state = {ready: false};
+  }
+
   render() {
     return (
-      <View>
-        <Text> Favourites </Text>
-      </View>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Current Driver Standings"
+          component={CurrentDriverStandings}
+        />
+        <Stack.Screen name="driverDetails" component={DriverDetails} />
+      </Stack.Navigator>
     );
   }
 }

@@ -12,8 +12,14 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1E8A3FAADB10464A8423B1CC /* Formula1-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B349C5AD1C745AABE69E9D6 /* Formula1-Black.ttf */; };
+		4283B7E09E0A4D1AB30090A4 /* Formula1-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40B85EC5540A4F4BB8E25958 /* Formula1-Italic.ttf */; };
+		6DE1631BE0944A2B81ACDB20 /* Formula1-Bold_web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BAC0658CE6D492986623FF0 /* Formula1-Bold_web.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-PablosF1-PablosF1Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-PablosF1-PablosF1Tests.a */; };
+		7C42616FD1234F1E83DB1E2F /* Formula1-Regular-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92EFC00041FE464087A418B1 /* Formula1-Regular-1.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		AB85CC25BFF248628842068B /* Formula1-Bold-4.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CC87D9457BF459B99581F4A /* Formula1-Bold-4.ttf */; };
+		D6DBC50F08694B2894885B73 /* Formula1-Wide.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB7B9ED53BD24CDA9EF37FDA /* Formula1-Wide.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +36,7 @@
 		00E356EE1AD99517003FC87E /* PablosF1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PablosF1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* PablosF1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PablosF1Tests.m; sourceTree = "<group>"; };
+		0BAC0658CE6D492986623FF0 /* Formula1-Bold_web.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Formula1-Bold_web.ttf"; path = "../assets/fonts/Formula1-Bold_web.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* PablosF1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PablosF1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = PablosF1/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = PablosF1/AppDelegate.mm; sourceTree = "<group>"; };
@@ -37,12 +44,17 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PablosF1/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PablosF1/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-PablosF1-PablosF1Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PablosF1-PablosF1Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B349C5AD1C745AABE69E9D6 /* Formula1-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Formula1-Black.ttf"; path = "../assets/fonts/Formula1-Black.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-PablosF1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PablosF1.debug.xcconfig"; path = "Target Support Files/Pods-PablosF1/Pods-PablosF1.debug.xcconfig"; sourceTree = "<group>"; };
+		40B85EC5540A4F4BB8E25958 /* Formula1-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Formula1-Italic.ttf"; path = "../assets/fonts/Formula1-Italic.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-PablosF1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PablosF1.release.xcconfig"; path = "Target Support Files/Pods-PablosF1/Pods-PablosF1.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-PablosF1-PablosF1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PablosF1-PablosF1Tests.debug.xcconfig"; path = "Target Support Files/Pods-PablosF1-PablosF1Tests/Pods-PablosF1-PablosF1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-PablosF1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PablosF1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = PablosF1/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-PablosF1-PablosF1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PablosF1-PablosF1Tests.release.xcconfig"; path = "Target Support Files/Pods-PablosF1-PablosF1Tests/Pods-PablosF1-PablosF1Tests.release.xcconfig"; sourceTree = "<group>"; };
+		8CC87D9457BF459B99581F4A /* Formula1-Bold-4.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Formula1-Bold-4.ttf"; path = "../assets/fonts/Formula1-Bold-4.ttf"; sourceTree = "<group>"; };
+		92EFC00041FE464087A418B1 /* Formula1-Regular-1.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Formula1-Regular-1.ttf"; path = "../assets/fonts/Formula1-Regular-1.ttf"; sourceTree = "<group>"; };
+		BB7B9ED53BD24CDA9EF37FDA /* Formula1-Wide.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Formula1-Wide.ttf"; path = "../assets/fonts/Formula1-Wide.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -122,6 +134,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				8566979C3CF5442294351DC5 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,6 +148,19 @@
 				00E356EE1AD99517003FC87E /* PablosF1Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8566979C3CF5442294351DC5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1B349C5AD1C745AABE69E9D6 /* Formula1-Black.ttf */,
+				8CC87D9457BF459B99581F4A /* Formula1-Bold-4.ttf */,
+				0BAC0658CE6D492986623FF0 /* Formula1-Bold_web.ttf */,
+				40B85EC5540A4F4BB8E25958 /* Formula1-Italic.ttf */,
+				92EFC00041FE464087A418B1 /* Formula1-Regular-1.ttf */,
+				BB7B9ED53BD24CDA9EF37FDA /* Formula1-Wide.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -244,6 +270,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				1E8A3FAADB10464A8423B1CC /* Formula1-Black.ttf in Resources */,
+				AB85CC25BFF248628842068B /* Formula1-Bold-4.ttf in Resources */,
+				6DE1631BE0944A2B81ACDB20 /* Formula1-Bold_web.ttf in Resources */,
+				4283B7E09E0A4D1AB30090A4 /* Formula1-Italic.ttf in Resources */,
+				7C42616FD1234F1E83DB1E2F /* Formula1-Regular-1.ttf in Resources */,
+				D6DBC50F08694B2894885B73 /* Formula1-Wide.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V8U63MAQE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PablosF1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -513,6 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V8U63MAQE;
 				INFOPLIST_FILE = PablosF1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

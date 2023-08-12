@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {FlatList} from 'react-native-gesture-handler';
-import {ListRenderItemInfo, View} from 'react-native';
+import {ListRenderItemInfo, StyleSheet, View} from 'react-native';
 import DriverRow from './DriverRow';
 import F1ApiClient from '../services/F1ApiClient';
 
@@ -59,10 +59,11 @@ export default class DriverStandings extends Component<
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <FlatList<DriverStandingItem>
           data={this.state.drivers}
           renderItem={this.renderRow}
+          style={styles.standingList}
         />
       </View>
     );
@@ -80,3 +81,16 @@ export default class DriverStandings extends Component<
     this.props.navigation.navigate('driverDetails', {driver});
   };
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#C8CCCD',
+  },
+  standingList: {
+    flex: 1,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 5,
+    paddingBottom: 10,
+  },
+});

@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import {DriverStandingItem} from './DriverStandings';
-import {Image, StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {
   ALEXANDER_ALBON,
   CARLOS_SAINZ,
@@ -34,25 +41,38 @@ export default class DriverRow extends Component<DriverRowProps> {
   render() {
     return (
       <TouchableHighlight onPress={this.props.onPress}>
-        <View style={styles.container}>
+        <View style={styles.driverCard}>
           <Text style={styles.positionNumber}>
             {this.props.driver.position}
           </Text>
-          <View>
-            <Text
-              style={[
-                styles.constructorName,
-                getConstructorStyleById(
-                  this.props.driver.Constructors[0].constructorId,
-                ),
-              ]}>
+          <View style={styles.driverNameAndConstructorBlock}>
+            <Text style={styles.driverName}>
               {this.props.driver.Driver.givenName}{' '}
-              {this.props.driver.Driver.familyName}
+              <Text
+                style={[
+                  styles.driverFamilyName,
+                  getConstructorStyleById(
+                    this.props.driver.Constructors[0].constructorId,
+                  ),
+                ]}>
+                {this.props.driver.Driver.familyName}
+              </Text>
             </Text>
             <Text style={styles.constructorName}>
               {this.props.driver.Constructors[0].name}
             </Text>
           </View>
+          <TouchableOpacity style={styles.points}>
+            <Text
+              style={[
+                styles.pointsText,
+                getConstructorStyleById(
+                  this.props.driver.Constructors[0].constructorId,
+                ),
+              ]}>
+              {this.props.driver.points}
+            </Text>
+          </TouchableOpacity>
           <Image
             style={styles.driverImage}
             source={getDriverImageById(this.props.driver.Driver.driverId)}
@@ -161,15 +181,25 @@ const getConstructorStyleById = (constructorId: string) => {
   if (constructorId === 'williams') {
     return styles.williams;
   }
-  return styles.container;
+  return styles.williams;
 };
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 10,
+  driverCard: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: {width: 0, height: 2},
+    shadowRadius: 4,
+    padding: 16,
+    marginBottom: 2,
     justifyContent: 'space-between',
-    padding: 10,
+  },
+  driverNameAndConstructorBlock: {
+    flex: 1,
+    marginLeft: 16,
   },
   positionNumber: {
     fontSize: 20,
@@ -178,8 +208,24 @@ const styles = StyleSheet.create({
   driverName: {
     fontSize: 20,
   },
+  driverFamilyName: {
+    fontFamily: 'Formula1-Display-Bold',
+    textTransform: 'uppercase',
+  },
   constructorName: {
-    fontSize: 15,
+    fontSize: 12,
+    color: '#6A6C6D',
+  },
+  points: {
+    padding: 10,
+    borderRadius: 40,
+    marginHorizontal: 3,
+    backgroundColor: '#F1F1F1',
+    marginTop: 5,
+  },
+  pointsText: {
+    fontSize: 12,
+    fontFamily: 'Formula1-Display-Bold',
   },
   driverImage: {
     width: 50,

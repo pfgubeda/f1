@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import DriverDetails from '../components/DriverDetails';
-import CurrentDriverStandings from '../components/CurrentDriverStandings';
+import {Text} from 'react-native';
 
 interface HomeScreenProps {}
 interface HomeScreenState {
@@ -18,14 +17,6 @@ export default class HomeScreen extends Component<
   }
 
   render() {
-    return (
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Current Driver Standings"
-          component={CurrentDriverStandings}
-        />
-        <Stack.Screen name="Details" component={DriverDetails} />
-      </Stack.Navigator>
-    );
+    return <Text>Home Screen</Text>;
   }
 }

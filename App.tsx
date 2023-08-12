@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FavouritesScreen from './screens/FavouritesScreen';
 
 const styles = StyleSheet.create({
@@ -25,20 +26,24 @@ const App = () => {
             component={HomeScreen}
             options={{
               headerShown: false,
-              tabBarLabel: 'Home',
-              tabBarIcon: ({color, size}) => (
-                <Ionicons name="home" size={size} color={color} />
+              tabBarLabel: '',
+              tabBarIcon: ({color}) => (
+                <Ionicons name="home" size={27} color={color} />
               ),
             }}
           />
           <Tab.Screen
-            name="Favorites"
+            name="Driver Standings"
             component={FavouritesScreen}
             options={{
               headerShown: false,
-              tabBarLabel: 'Favorites',
-              tabBarIcon: ({color, size}) => (
-                <Ionicons name="heart" size={size} color={color} />
+              tabBarLabel: '',
+              tabBarIcon: ({color}) => (
+                <MaterialCommunityIcons
+                  name="racing-helmet"
+                  size={27}
+                  color={color}
+                />
               ),
             }}
           />
