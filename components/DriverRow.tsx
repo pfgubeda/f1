@@ -62,17 +62,15 @@ export default class DriverRow extends Component<DriverRowProps> {
               {this.props.driver.Constructors[0].name}
             </Text>
           </View>
-          <TouchableOpacity style={styles.points}>
-            <Text
-              style={[
-                styles.pointsText,
-                getConstructorStyleById(
-                  this.props.driver.Constructors[0].constructorId,
-                ),
-              ]}>
-              {this.props.driver.points}
-            </Text>
-          </TouchableOpacity>
+          <Text
+            style={[
+              styles.pointsText,
+              getConstructorStyleById(
+                this.props.driver.Constructors[0].constructorId,
+              ),
+            ]}>
+            {this.props.driver.points}
+          </Text>
           <Image
             style={styles.driverImage}
             source={getDriverImageById(this.props.driver.Driver.driverId)}
@@ -216,20 +214,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#6A6C6D',
   },
-  points: {
-    padding: 10,
-    borderRadius: 40,
-    marginHorizontal: 3,
-    backgroundColor: '#F1F1F1',
-    marginTop: 5,
-  },
   pointsText: {
-    fontSize: 12,
+    fontSize: 16,
     fontFamily: 'Formula1-Display-Bold',
+    right: 50,
   },
   driverImage: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
+    position: 'absolute',
+    right: 5,
   },
   red_bull_racing: {
     color: '#0600ef',
