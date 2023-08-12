@@ -24,7 +24,7 @@ export default class HomeScreen extends Component<
           name="Current Driver Standings"
           component={CurrentDriverStandings}
         />
-        <Stack.Screen name="driverDetails" component={DriverDetails} />
+        <Stack.Screen name="Details" component={DriverDetails} />
       </Stack.Navigator>
     );
   }
