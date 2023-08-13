@@ -3,12 +3,12 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from './screens/HomeScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import CurrentDriverStandingsScreen from './screens/DriverStandingsScreen';
 import CurrentConstructorStandingsScreen from './screens/ConstructorStandingsScreen';
+import ScheduleScreen from './screens/ScheduleScreen';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +25,7 @@ const App = () => {
         <Tab.Navigator>
           <Tab.Screen
             name="Home"
-            component={HomeScreen}
+            component={ScheduleScreen}
             options={{
               headerShown: false,
               tabBarLabel: '',
