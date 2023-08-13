@@ -39,7 +39,7 @@ const App = () => {
             component={CurrentDriverStandingsScreen}
             options={{
               headerShown: false,
-              tabBarLabel: '',
+              tabBarLabel: 'Drivers',
               tabBarIcon: ({color}) => (
                 <MaterialCommunityIcons
                   name="racing-helmet"
@@ -54,7 +54,7 @@ const App = () => {
             component={CurrentConstructorStandingsScreen}
             options={{
               headerShown: false,
-              tabBarLabel: '',
+              tabBarLabel: 'Constructors',
               tabBarIcon: ({color}) => (
                 <FontAwesome5 name="list-ol" size={27} color={color} />
               ),

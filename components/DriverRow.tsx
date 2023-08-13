@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   },
   positionNumber: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'Formula1-Display-Bold',
   },
   driverName: {
     fontSize: 20,

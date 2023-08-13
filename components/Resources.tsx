@@ -30,3 +30,14 @@ export const ALPHATAURI = require('../resources/constructors/alphatauri.png');
 export const ALFA_ROMEO = require('../resources/constructors/alfa_romeo.png');
 export const HAAS = require('../resources/constructors/haas_f1_team.png');
 export const WILLIAMS = require('../resources/constructors/williams.png');
+
+export const RED_BULL_CAR = require('../resources/constructors/red_bull_car.png');
+export const MERCEDES_CAR = require('../resources/constructors/mercedes_car.png');
+export const FERRARI_CAR = require('../resources/constructors/ferrari_car.png');
+export const MCLAREN_CAR = require('../resources/constructors/mclaren_car.png');
+export const ASTON_MARTIN_CAR = require('../resources/constructors/aston_martin_car.png');
+export const ALPINE_CAR = require('../resources/constructors/alpine_car.png');
+export const ALPHATAURI_CAR = require('../resources/constructors/alphatauri_car.png');
+export const ALFA_ROMEO_CAR = require('../resources/constructors/alfa_romeo_car.png');
+export const HAAS_CAR = require('../resources/constructors/has_f1_team_car.png');
+export const WILLIAMS_CAR = require('../resources/constructors/williams_car.png');

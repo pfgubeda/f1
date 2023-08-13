@@ -58,6 +58,7 @@ export default class ConstructorStandings extends Component<
         <FlatList<ConstructorStandingItem>
           data={this.state.constructors}
           renderItem={this.renderRow}
+          style={styles.standingList}
         />
       </View>
     );

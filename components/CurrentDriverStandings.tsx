@@ -5,7 +5,7 @@ export default class CurrentDriverStandings extends DriverStandings {
     super(props);
 
     props.navigation.setOptions({
-      title: 'Current Driver Standings',
+      title: 'Drivers Standings',
     });
   }
 
