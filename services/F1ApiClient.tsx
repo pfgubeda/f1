@@ -25,6 +25,13 @@ export interface DriverStanding {
   Constructors: Constructor[];
 }
 
+export interface ConstructorStanding {
+  position: string;
+  points: string;
+  wins: string;
+  Constructor: Constructor;
+}
+
 export default class F1ApiClient {
   static BASE_URL = 'https://ergast.com/api/f1';
 
@@ -33,5 +40,13 @@ export default class F1ApiClient {
     let response = await fetch(url);
     let responseJson = await response.json();
     return responseJson.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+  }
+
+  async currentConstructorStandings(): Promise<ConstructorStanding[]> {
+    let url = `${F1ApiClient.BASE_URL}/current/constructorStandings.json`;
+    let response = await fetch(url);
+    let responseJson = await response.json();
+    return responseJson.MRData.StandingsTable.StandingsLists[0]
+      .ConstructorStandings;
   }
 }

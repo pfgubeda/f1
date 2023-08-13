@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
 import {DriverStandingItem} from './DriverStandings';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import {
   ALEXANDER_ALBON,
   CARLOS_SAINZ,

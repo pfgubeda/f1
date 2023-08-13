@@ -50,11 +50,15 @@ export default class DriverStandings extends Component<
 
   async componentDidMount() {
     try {
-      const driverStandings = await this.apiClient.currentDriverStandings();
+      const driverStandings = await this.loadPage();
       this.setState({drivers: driverStandings});
     } catch (error) {
       console.log(error);
     }
+  }
+
+  loadPage(): Promise<DriverStandingItem[]> {
+    throw new Error('Method not implemented.');
   }
 
   render() {

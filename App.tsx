@@ -6,7 +6,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FavouritesScreen from './screens/FavouritesScreen';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import CurrentDriverStandingsScreen from './screens/DriverStandingsScreen';
+import CurrentConstructorStandingsScreen from './screens/ConstructorStandingsScreen';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,7 +36,7 @@ const App = () => {
           />
           <Tab.Screen
             name="Driver Standings"
-            component={FavouritesScreen}
+            component={CurrentDriverStandingsScreen}
             options={{
               headerShown: false,
               tabBarLabel: '',
@@ -44,6 +46,17 @@ const App = () => {
                   size={27}
                   color={color}
                 />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Constructor Standings"
+            component={CurrentConstructorStandingsScreen}
+            options={{
+              headerShown: false,
+              tabBarLabel: '',
+              tabBarIcon: ({color}) => (
+                <FontAwesome5 name="list-ol" size={27} color={color} />
               ),
             }}
           />
