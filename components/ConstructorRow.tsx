@@ -36,8 +36,9 @@ export default class ConstructorRow extends Component<ConstructorRowProps> {
             ]}>
             {this.props.constructorI.Constructor.name}
           </Text>
+
           <Image
-            style={styles.constructorLogo}
+            style={styles.costructorBackground}
             source={getConstructorLogoById(
               this.props.constructorI.Constructor.constructorId,
             )}
@@ -76,7 +77,7 @@ const getConstructorLogoById = (constructorId: string) => {
   if (constructorId === 'williams') {
     return WILLIAMS;
   }
-  if (constructorId === 'aston') {
+  if (constructorId === 'aston_martin') {
     return ASTON_MARTIN;
   }
   if (constructorId === 'alphatauri') {
@@ -133,6 +134,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   constructorName: {
+    flex: 1,
+    marginLeft: 16,
     fontFamily: 'Formula1-Display-Bold',
     fontSize: 20,
   },
@@ -145,8 +148,9 @@ const styles = StyleSheet.create({
     height: 50,
   },
   pointsText: {
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: 'Formula1-Display-Bold',
+    marginRight: 135,
   },
   red_bull_racing: {
     color: '#0600ef',
@@ -177,5 +181,12 @@ const styles = StyleSheet.create({
   },
   williams: {
     color: '#005aff',
+  },
+  costructorBackground: {
+    flex: 1,
+    width: 130,
+    height: 50,
+    position: 'absolute',
+    right: 10,
   },
 });
