@@ -9,6 +9,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import CurrentDriverStandingsScreen from './screens/DriverStandingsScreen';
 import CurrentConstructorStandingsScreen from './screens/ConstructorStandingsScreen';
 import ScheduleScreen from './screens/ScheduleScreen';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,28 +19,42 @@ const styles = StyleSheet.create({
 
 const Tab = createBottomTabNavigator();
 
+const TopBar = createMaterialTopTabNavigator();
+
+const StandingsScreen = () => {
+  return (
+    <TopBar.Navigator>
+      <TopBar.Screen name="Driver" component={CurrentDriverStandingsScreen} />
+      <TopBar.Screen
+        name="Constructor"
+        component={CurrentConstructorStandingsScreen}
+      />
+    </TopBar.Navigator>
+  );
+};
+
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator screenOptions={{headerShown: false}}>
           <Tab.Screen
-            name="Home"
+            name="Races"
             component={ScheduleScreen}
             options={{
               headerShown: false,
-              tabBarLabel: '',
+              tabBarLabel: 'Racing',
               tabBarIcon: ({color}) => (
-                <Ionicons name="home" size={27} color={color} />
+                <FontAwesome5 name="flag-checkered" size={27} color={color} />
               ),
             }}
           />
           <Tab.Screen
-            name="Driver Standings"
-            component={CurrentDriverStandingsScreen}
+            name="Dream Team"
+            component={StandingsScreen}
             options={{
               headerShown: false,
-              tabBarLabel: 'Drivers',
+              tabBarLabel: 'Dream Team',
               tabBarIcon: ({color}) => (
                 <MaterialCommunityIcons
                   name="racing-helmet"
@@ -50,11 +65,11 @@ const App = () => {
             }}
           />
           <Tab.Screen
-            name="Constructor Standings"
-            component={CurrentConstructorStandingsScreen}
+            name="Standings"
+            component={StandingsScreen}
             options={{
               headerShown: false,
-              tabBarLabel: 'Constructors',
+              tabBarLabel: 'Standings',
               tabBarIcon: ({color}) => (
                 <FontAwesome5 name="list-ol" size={27} color={color} />
               ),

@@ -5,7 +5,7 @@ export default class CurrentSchedule extends Schedule {
     super(props);
 
     props.navigation.setOptions({
-      title: 'Schedule',
+      title: 'Racing',
     });
   }
 

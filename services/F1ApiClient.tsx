@@ -32,6 +32,8 @@ interface Circuit {
 
 export interface Race {
   readonly season: string;
+  readonly date: string;
+  readonly time: string;
   readonly round: string;
   readonly url: string;
   readonly raceName: string;
@@ -76,7 +78,6 @@ export default class F1ApiClient {
     let url = `${F1ApiClient.BASE_URL}/current.json`;
     let response = await fetch(url);
     let responseJson = await response.json();
-    console.log(responseJson.MRData.RaceTable.Races[0].raceName);
     return responseJson.MRData.RaceTable.Races;
   }
 }

@@ -1,8 +1,14 @@
 import {FlatList} from 'react-native-gesture-handler';
 import F1ApiClient from '../services/F1ApiClient';
 import React, {Component} from 'react';
-import {ListRenderItemInfo, StyleSheet, View} from 'react-native';
+import {
+  ListRenderItemInfo,
+  StyleSheet,
+  TouchableHighlight,
+  View,
+} from 'react-native';
 import RaceRow from './RaceRow';
+import IonIcons from 'react-native-vector-icons/Ionicons';
 
 interface Location {
   readonly lat: string;
@@ -21,6 +27,8 @@ interface Circuit {
 export interface RaceItem {
   readonly season: string;
   readonly round: string;
+  readonly date: string;
+  readonly time: string;
   readonly url: string;
   readonly raceName: string;
   readonly Circuit: Circuit;
@@ -60,6 +68,13 @@ export default class Schedule extends Component<ScheduleProps, ScheduleState> {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.calendarButtonView}>
+          <TouchableHighlight
+            style={styles.calendarButton}
+            onPress={this.enableOnlyRemainingRaces}>
+            <IonIcons name="calendar-clear" />
+          </TouchableHighlight>
+        </View>
         <FlatList<RaceItem>
           data={this.state.races}
           renderItem={this.renderRow}
@@ -68,6 +83,27 @@ export default class Schedule extends Component<ScheduleProps, ScheduleState> {
       </View>
     );
   }
+
+  enableOnlyRemainingRaces = () => {
+    const currentDate = new Date();
+    const currentDateString =
+      currentDate.getFullYear() +
+      '-' +
+      this.getCorrectValue(currentDate.getMonth()) +
+      '-' +
+      this.getCorrectValue(currentDate.getDate());
+    var filteredRaces = this.state.races.filter(function (race) {
+      return race.date > currentDateString;
+    });
+    this.setState({races: filteredRaces});
+  };
+
+  getCorrectValue = (value: number) => {
+    if (value < 10) {
+      return '0' + value;
+    }
+    return value;
+  };
 
   renderRow = (rowInfo: ListRenderItemInfo<RaceItem>) => {
     const item = rowInfo.item;
@@ -90,5 +126,18 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingTop: 5,
     paddingBottom: 10,
+  },
+  calendarButtonView: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+  },
+  calendarButton: {
+    backgroundColor: '#C8CCCD',
+    borderRadius: 50,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
