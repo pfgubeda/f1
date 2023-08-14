@@ -41,12 +41,12 @@ App desarrollada en React Native 0.72 (typescript)
 Marcar los requisitos que se vayan cumpliendo
 
 - Utilizar la versión 0.71 de React Native. ✓
-- Utilizar FlatList o SectionList
-- Hacer llamadas a un backend usando fetch u otra librería.
+- Utilizar FlatList o SectionList. ✓
+- Hacer llamadas a un backend usando fetch u otra librería. ✓
 - Almacenar algo en persistencia: caché o preferencias con AsyncStorage, o una base de datos con React Native SQLite 2.
 - Introducir navegación de cualquier tipo (stack o tab bar) con React Navigation. ✓
 - Añadir animaciones imperativas o declarativas.
-- Crear uno o más módulos nativos
+- Crear uno o más módulos nativos.
 
 
 ## Bugs, leftovers y cosas pendientes conocidos
