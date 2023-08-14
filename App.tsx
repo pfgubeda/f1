@@ -20,6 +20,7 @@ import DreamTeam from './components/DreamTeam';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
   },
 });
 
@@ -32,7 +33,7 @@ const StandingsStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Standings"
+        name="StandingsScreen"
         component={StandingsScreen}
         options={{
           headerShown: false,
@@ -75,7 +76,7 @@ const RacingStack = () => {
       <Stack.Screen name="raceDetails" component={RaceDetails} />
     </Stack.Navigator>
   );
-}
+};
 
 const RacingScreen = () => {
   return (
@@ -98,7 +99,11 @@ const App = () => {
       <SafeAreaView style={{flex: 0, backgroundColor: '#ff232b'}} />
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
-          <Tab.Navigator screenOptions={{headerShown: false}}>
+          <Tab.Navigator
+            screenOptions={({}) => ({
+              tabBarActiveTintColor: '#ff232b',
+              tabBarInactiveTintColor: 'gray',
+            })}>
             <Tab.Screen
               name="Races"
               component={RacingStack}

@@ -23,7 +23,7 @@ import {
   VALTTERI_BOTTAS,
   YUKI_TSUNODA,
   ZHOU_GUANYU,
-} from './Resources';
+} from '../Resources';
 
 interface DriverRowProps {
   readonly onPress: () => void;

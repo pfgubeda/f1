@@ -22,7 +22,7 @@ import {
   WILLIAMS_CAR,
   ASTON_MARTIN_CAR,
   ALPHATAURI_CAR,
-} from './Resources';
+} from '../Resources';
 
 interface ConstructorRowProps {
   readonly onPress: () => void;

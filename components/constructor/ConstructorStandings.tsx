@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {FlatList} from 'react-native-gesture-handler';
 import {ListRenderItemInfo, StyleSheet, View} from 'react-native';
 import ConstructorRow from './ConstructorRow';
-import F1ApiClient from '../services/F1ApiClient';
+import F1ApiClient from '../../services/F1ApiClient';
 
 interface Constructor {
   readonly constructorId: string;
