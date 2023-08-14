@@ -49,6 +49,11 @@ Marcar los requisitos que se vayan cumpliendo
 - Crear uno o más módulos nativos
 
 
-## Bugs conocidos
+## Bugs, leftovers y cosas pendientes conocidos
 
-- Visualizando en detalle un elemento (carrera, constructor o piloto) si se cambia de pestaña utilizando la top bar, al volver a la ventana anterior permanecerá abierta en el detalle del elemento visto por última vez. SOLUCIONES: ocultar la tab bar cuando se entra en detalle (mejor solución); volver atrás en la navegación cuando se detecte que se cambia de pestaña en la top bar
+- Visualizando en detalle un elemento (carrera, constructor o piloto) si se cambia de pestaña utilizando la top bar, al volver a la ventana anterior permanecerá abierta en el detalle del elemento visto por última vez. SOLUCIONES: ocultar la tab bar cuando se entra en detalle (mejor solución); volver atrás en la navegación cuando se detecte que se cambia de pestaña en la top bar. ---> **Solucionado** :heavy_check_mark: : se ha refactorizado la arquitectura, teniendo ahora bien definido un stack navigator para una única tab screen.
+
+- Falta por implementar los detalles de:
+   - [ ] Driver
+   - [ ] Constructor
+   - [ ] Race
