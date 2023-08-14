@@ -16,7 +16,7 @@ export default class DreamTeam extends Component<
 
     this.state = {};
     props.navigation.setOptions({
-      headerShown: false,
+      headerShown: true,
     });
   }
   render() {

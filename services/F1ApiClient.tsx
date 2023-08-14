@@ -1,4 +1,4 @@
-import {RaceItem} from '../components/Schedule';
+import {RaceItem} from '../components/schedule/Schedule';
 
 export interface Driver {
   driverId: string;

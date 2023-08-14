@@ -5,12 +5,17 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import CurrentDriverStandingsScreen from './screens/DriverStandingsScreen';
-import CurrentConstructorStandingsScreen from './screens/ConstructorStandingsScreen';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import DreamTeamScreen from './screens/DreamTeamScreen';
-import UpcomingScheduleScreen from './screens/UpcomingScheduleScreen';
-import PastScheduleScreen from './screens/PastScheduleScreen';
+
+import {createStackNavigator} from '@react-navigation/stack';
+import DriverDetails from './components/driver/DriverDetails';
+import CurrentDriverStandings from './components/driver/CurrentDriverStandings';
+import CurrentConstructorStandings from './components/constructor/CurrentConstructorStandings';
+import ConstructorDetails from './components/constructor/ConstructorDetails';
+import RaceDetails from './components/schedule/RaceDetails';
+import UpcomingSchedule from './components/schedule/UpcomingSchedule';
+import PastSchedule from './components/schedule/PastSchedule';
+import DreamTeam from './components/DreamTeam';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,6 +26,23 @@ const styles = StyleSheet.create({
 const Tab = createBottomTabNavigator();
 
 const TopBar = createMaterialTopTabNavigator();
+const Stack = createStackNavigator();
+
+const StandingsStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Standings"
+        component={StandingsScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen name="driverDetails" component={DriverDetails} />
+      <Stack.Screen name="constructorDetails" component={ConstructorDetails} />
+    </Stack.Navigator>
+  );
+};
 
 const StandingsScreen = () => {
   return (
@@ -31,14 +53,29 @@ const StandingsScreen = () => {
         tabBarActiveTintColor: '#fff',
         tabBarIndicatorStyle: {backgroundColor: '#fff'},
       }}>
-      <TopBar.Screen name="Driver" component={CurrentDriverStandingsScreen} />
+      <TopBar.Screen name="Driver" component={CurrentDriverStandings} />
       <TopBar.Screen
         name="Constructor"
-        component={CurrentConstructorStandingsScreen}
+        component={CurrentConstructorStandings}
       />
     </TopBar.Navigator>
   );
 };
+
+const RacingStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Racing"
+        component={RacingScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen name="raceDetails" component={RaceDetails} />
+    </Stack.Navigator>
+  );
+}
 
 const RacingScreen = () => {
   return (
@@ -49,8 +86,8 @@ const RacingScreen = () => {
         tabBarActiveTintColor: '#fff',
         tabBarIndicatorStyle: {backgroundColor: '#fff'},
       }}>
-      <TopBar.Screen name="Upcoming" component={UpcomingScheduleScreen} />
-      <TopBar.Screen name="Past" component={PastScheduleScreen} />
+      <TopBar.Screen name="Upcoming" component={UpcomingSchedule} />
+      <TopBar.Screen name="Past" component={PastSchedule} />
     </TopBar.Navigator>
   );
 };
@@ -64,10 +101,10 @@ const App = () => {
           <Tab.Navigator screenOptions={{headerShown: false}}>
             <Tab.Screen
               name="Races"
-              component={RacingScreen}
+              component={RacingStack}
               options={{
                 headerShown: true,
-                title: 'Racing',
+                title: 'Racing'.toLocaleUpperCase(),
                 tabBarLabel: 'Racing',
                 headerStyle: {
                   backgroundColor: '#ff232b',
@@ -84,10 +121,10 @@ const App = () => {
             />
             <Tab.Screen
               name="Dream Team"
-              component={DreamTeamScreen}
+              component={DreamTeam}
               options={{
                 headerShown: true,
-                title: 'Dream Team',
+                title: 'Dream Team'.toLocaleUpperCase(),
                 tabBarLabel: 'Dream Team',
                 headerStyle: {
                   backgroundColor: '#ff232b',
@@ -108,10 +145,10 @@ const App = () => {
             />
             <Tab.Screen
               name="Standings"
-              component={StandingsScreen}
+              component={StandingsStack}
               options={{
                 headerShown: true,
-                title: 'Standings',
+                title: 'Standings'.toLocaleUpperCase(),
                 tabBarLabel: 'Standings',
                 headerStyle: {
                   backgroundColor: '#ff232b',

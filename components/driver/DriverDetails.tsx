@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {DriverStandingItem} from './DriverStandings';
-import F1ApiClient from '../services/F1ApiClient';
 import {View, Text} from 'react-native';
 
 interface DriverProps {
@@ -13,7 +12,6 @@ interface DriverState {
 }
 
 export default class DriverDetails extends Component<DriverProps, DriverState> {
-
   constructor(props: DriverProps) {
     super(props);
     this.state = {driver: this.props.route.params.driver};

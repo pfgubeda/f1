@@ -1,5 +1,5 @@
 import {FlatList} from 'react-native-gesture-handler';
-import F1ApiClient from '../services/F1ApiClient';
+import F1ApiClient from '../../services/F1ApiClient';
 import React, {Component} from 'react';
 import {ListRenderItemInfo, StyleSheet, View} from 'react-native';
 import RaceRow from './RaceRow';
