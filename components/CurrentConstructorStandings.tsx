@@ -7,7 +7,7 @@ export default class CurrentConstructorStandings extends ConstructorStandings {
     super(props);
 
     props.navigation.setOptions({
-      title: 'Constructors Standings',
+      headerShown: false,
     });
   }
 

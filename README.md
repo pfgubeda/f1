@@ -47,3 +47,8 @@ Marcar los requisitos que se vayan cumpliendo
 - Introducir navegación de cualquier tipo (stack o tab bar) con React Navigation. ✓
 - Añadir animaciones imperativas o declarativas.
 - Crear uno o más módulos nativos
+
+
+## Bugs conocidos
+
+- Visualizando en detalle un elemento (carrera, constructor o piloto) si se cambia de pestaña utilizando la top bar, al volver a la ventana anterior permanecerá abierta en el detalle del elemento visto por última vez. SOLUCIONES: ocultar la tab bar cuando se entra en detalle (mejor solución); volver atrás en la navegación cuando se detecte que se cambia de pestaña en la top bar

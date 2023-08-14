@@ -5,7 +5,7 @@ export default class PastSchedule extends Schedule {
     super(props);
 
     props.navigation.setOptions({
-      title: 'Racing',
+      headerShown: false,
     });
   }
 

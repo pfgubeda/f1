@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import UpcomingSchedule from '../components/UpcomingSchedule';
+import RaceDetails from '../components/RaceDetails';
 
 interface ScheduleScreenProps {}
 interface ScheduleScreenState {
@@ -20,6 +21,7 @@ export default class UpcomingScheduleScreen extends Component<
     return (
       <Stack.Navigator>
         <Stack.Screen name="Schedule" component={UpcomingSchedule} />
+        <Stack.Screen name="raceDetails" component={RaceDetails} />
       </Stack.Navigator>
     );
   }

@@ -13,12 +13,10 @@ interface DriverState {
 }
 
 export default class DriverDetails extends Component<DriverProps, DriverState> {
-  private apiClient: F1ApiClient;
 
   constructor(props: DriverProps) {
     super(props);
     this.state = {driver: this.props.route.params.driver};
-    this.apiClient = new F1ApiClient();
 
     props.navigation.setOptions({
       title: `${this.state.driver.Driver.givenName} ${this.state.driver.Driver.familyName}`,
