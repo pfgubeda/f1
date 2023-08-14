@@ -10,13 +10,13 @@ interface RaceRowProps {
 
 export default class RaceRow extends Component<RaceRowProps> {
   render() {
-    const day = this.props.race.date.split('-')[2];
-    const endDay = parseInt(day, 10) + 2;
-    var endDayString = endDay.toString();
-    if (endDay < 10) {
-      endDayString = '0' + endDay.toString();
+    const endDay = this.props.race.date.split('-')[2];
+    const day = parseInt(endDay, 10) - 2;
+    var dayString = day.toString();
+    if (day < 10) {
+      dayString = '0' + day.toString();
     }
-    var dayToShow = day.toString() + '-' + endDayString;
+    var dayToShow = dayString + '-' + endDay.toString();
     const monthToShow = getMonthName(
       parseInt(this.props.race.date.split('-')[1], 10),
     );
@@ -59,7 +59,7 @@ const getMonthName = (monthNumber: number) => {
     'Nov',
     'Dec',
   ];
-  return monthNames[monthNumber];
+  return monthNames[monthNumber - 1];
 };
 const styles = StyleSheet.create({
   raceCard: {

@@ -1,3 +1,5 @@
+import {RaceItem} from '../components/Schedule';
+
 export interface Driver {
   driverId: string;
   permanentNumber: string;
@@ -74,10 +76,53 @@ export default class F1ApiClient {
       .ConstructorStandings;
   }
 
-  async scheduleCurrentSeason(): Promise<Race[]> {
+  async scheduleUpcomingSeason(): Promise<Race[]> {
+    const currentDate = new Date();
+    const currentDateString =
+      currentDate.getFullYear() +
+      '-' +
+      this.getCorrectValue(currentDate.getMonth() + 1) +
+      '-' +
+      this.getCorrectValue(currentDate.getDate());
+
     let url = `${F1ApiClient.BASE_URL}/current.json`;
     let response = await fetch(url);
     let responseJson = await response.json();
-    return responseJson.MRData.RaceTable.Races;
+    var filteredRaces = responseJson.MRData.RaceTable.Races.filter(function (
+      race: RaceItem,
+    ) {
+      return race.date > currentDateString;
+    });
+    return filteredRaces;
   }
+
+  async schedulePastSeason(): Promise<Race[]> {
+    const currentDate = new Date();
+    const currentDateString =
+      currentDate.getFullYear() +
+      '-' +
+      this.getCorrectValue(currentDate.getMonth() + 1) +
+      '-' +
+      this.getCorrectValue(currentDate.getDate());
+
+    let url = `${F1ApiClient.BASE_URL}/current.json`;
+    let response = await fetch(url);
+    let responseJson = await response.json();
+    var filteredRaces = responseJson.MRData.RaceTable.Races.filter(function (
+      race: RaceItem,
+    ) {
+      return race.date < currentDateString;
+    });
+    filteredRaces.sort(function (a: RaceItem, b: RaceItem) {
+      return a.date < b.date ? 1 : -1;
+    });
+    return filteredRaces;
+  }
+
+  getCorrectValue = (value: number) => {
+    if (value < 10) {
+      return '0' + value;
+    }
+    return value;
+  };
 }

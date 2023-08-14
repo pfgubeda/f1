@@ -1,6 +1,6 @@
 import Schedule, {ScheduleProps} from './Schedule';
 
-export default class CurrentSchedule extends Schedule {
+export default class UpcomingSchedule extends Schedule {
   constructor(props: ScheduleProps) {
     super(props);
 
@@ -10,6 +10,6 @@ export default class CurrentSchedule extends Schedule {
   }
 
   loadPage() {
-    return this.apiClient.scheduleCurrentSeason();
+    return this.apiClient.scheduleUpcomingSeason();
   }
 }

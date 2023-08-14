@@ -3,13 +3,14 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import CurrentDriverStandingsScreen from './screens/DriverStandingsScreen';
 import CurrentConstructorStandingsScreen from './screens/ConstructorStandingsScreen';
-import ScheduleScreen from './screens/ScheduleScreen';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import DreamTeamScreen from './screens/DreamTeamScreen';
+import UpcomingScheduleScreen from './screens/UpcomingScheduleScreen';
+import PastScheduleScreen from './screens/PastScheduleScreen';
 
 const styles = StyleSheet.create({
   container: {
@@ -33,6 +34,15 @@ const StandingsScreen = () => {
   );
 };
 
+const RacingScreen = () => {
+  return (
+    <TopBar.Navigator>
+      <TopBar.Screen name="Upcoming" component={UpcomingScheduleScreen} />
+      <TopBar.Screen name="Past" component={PastScheduleScreen} />
+    </TopBar.Navigator>
+  );
+};
+
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -40,7 +50,7 @@ const App = () => {
         <Tab.Navigator screenOptions={{headerShown: false}}>
           <Tab.Screen
             name="Races"
-            component={ScheduleScreen}
+            component={RacingScreen}
             options={{
               headerShown: false,
               tabBarLabel: 'Racing',
@@ -51,7 +61,7 @@ const App = () => {
           />
           <Tab.Screen
             name="Dream Team"
-            component={StandingsScreen}
+            component={DreamTeamScreen}
             options={{
               headerShown: false,
               tabBarLabel: 'Dream Team',
