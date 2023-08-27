@@ -1,4 +1,3 @@
-import 'react-native-gesture-handler';
 import React, {Fragment} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
