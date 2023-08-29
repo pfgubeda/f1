@@ -9,6 +9,7 @@ export const KEVIN_MAGNUSSEN = require('../resources/drivers/kevin_magnussen.png
 export const LANCE_STROLL = require('../resources/drivers/lance_stroll.png');
 export const LANDO_NORRIS = require('../resources/drivers/lando_norris.png');
 export const LEWIS_HAMILTON = require('../resources/drivers/lewis_hamilton.png');
+export const LIAM_LAWSON = require('../resources/drivers/liam_lawson.png');
 export const LOGAN_SARGEANT = require('../resources/drivers/logan_sargeant.png');
 export const MAX_VERSTAPPEN = require('../resources/drivers/max_verstappen.png');
 export const NICO_HULKENBERG = require('../resources/drivers/nico_hulkenberg.png');

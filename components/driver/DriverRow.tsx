@@ -13,6 +13,7 @@ import {
   LANCE_STROLL,
   LANDO_NORRIS,
   LEWIS_HAMILTON,
+  LIAM_LAWSON,
   LOGAN_SARGEANT,
   MAX_VERSTAPPEN,
   NICO_HULKENBERG,
@@ -138,7 +139,10 @@ const getDriverImageById = (driverId: string) => {
   if (driverId === 'zhou') {
     return ZHOU_GUANYU;
   }
-  return FERNANDO_ALONSO;
+  if (driverId === 'lawson') {
+    return LIAM_LAWSON;
+  }
+  return null;
 };
 
 const getConstructorStyleById = (constructorId: string) => {
