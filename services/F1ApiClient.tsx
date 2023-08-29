@@ -59,7 +59,7 @@ export interface ConstructorStanding {
 }
 
 export default class F1ApiClient {
-  static BASE_URL = 'https://ergast.com/api/f1';
+  static BASE_URL = 'http://ergast.com/api/f1';
 
   async currentDriverStandings(): Promise<DriverStanding[]> {
     let url = `${F1ApiClient.BASE_URL}/current/driverStandings.json`;
