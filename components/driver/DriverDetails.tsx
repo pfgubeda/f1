@@ -35,8 +35,6 @@ import {
   YUKI_TSUNODA,
   ZHOU_GUANYU,
 } from '../Resources';
-import {ImageBackground} from 'react-native';
-import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 interface DriverProps {
   readonly navigation: any;
@@ -153,7 +151,7 @@ export default class DriverDetails extends Component<DriverProps, DriverState> {
 const getDateFromAmericanFormatDate = (date: string) => {
   const dateArray = date.split('-');
   return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
-}
+};
 
 const getDriverImageById = (driverId: string) => {
   if (driverId === 'albon') {
@@ -259,7 +257,7 @@ const getConstructorCarById = (constructorId: string) => {
 };
 
 const getConstructorBackgroundStyleById = (constructorId: string) => {
-  if (constructorId === 'red_bull_bg') {
+  if (constructorId === 'red_bull') {
     return styles.red_bull_racing_bg;
   }
   if (constructorId === 'mercedes') {
@@ -383,6 +381,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#fff',
   },
   sectionDivisor: {
     width: '100%',
