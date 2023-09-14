@@ -1,7 +1,16 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, ImageSourcePropType, Alert, TouchableOpacity } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import React, {Component} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ImageSourcePropType,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
+
 import * as Resources from './Resources';
+import {Picker} from '@react-native-picker/picker';
 
 interface DreamTeamProps {
   readonly navigation: any;
@@ -32,20 +41,24 @@ export default class DreamTeam extends Component<
   }
 
   handleDriver1Change = (itemValue: string | null) => {
-    // Evitar seleccionar el mismo piloto en Driver1 y Driver2
-    if (itemValue !== this.state.selectedDriver2) {
-      this.setState({ selectedDriver1: itemValue });
-    }else {
-      Alert.alert('Warning!', 'This driver has been already chosen');
+    if (itemValue !== null) {
+      // Evitar seleccionar el mismo piloto en Driver1 y Driver2
+      if (itemValue !== this.state.selectedDriver2) {
+        this.setState({selectedDriver1: itemValue});
+      } else {
+        Alert.alert('Warning!', 'This driver has been already chosen');
+      }
     }
   };
 
   handleDriver2Change = (itemValue: string | null) => {
-    // Evitar seleccionar el mismo piloto en Driver2 y Driver1
-    if (itemValue !== this.state.selectedDriver1) {
-      this.setState({ selectedDriver2: itemValue });
-    }else {
-      Alert.alert('Warning!', 'This driver has been already chosen');
+    if (itemValue !== null) {
+      // Evitar seleccionar el mismo piloto en Driver2 y Driver1
+      if (itemValue !== this.state.selectedDriver1) {
+        this.setState({selectedDriver2: itemValue});
+      } else {
+        Alert.alert('Warning!', 'This driver has been already chosen');
+      }
     }
   };
 
@@ -72,9 +85,9 @@ export default class DreamTeam extends Component<
       'SERGIO_PEREZ',
       'VALTTERI_BOTTAS',
       'YUKI_TSUNODA',
-      'ZHOU_GUANYU'
+      'ZHOU_GUANYU',
     ];
-    
+
     const constructorOptions = [
       'RED_BULL',
       'MERCEDES',
@@ -87,7 +100,7 @@ export default class DreamTeam extends Component<
       'ASTON_MARTIN',
       'ALPHATAURI',
     ];
-    
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Choose your favorites</Text>
@@ -100,7 +113,7 @@ export default class DreamTeam extends Component<
               style={styles.picker}
               selectedValue={this.state.selectedDriver1}
               onValueChange={this.handleDriver1Change}
-            >
+              numberOfLines={2}>
               <Picker.Item label="Select Driver" value={null} />
               {driverOptions.map((driver, index) => (
                 <Picker.Item
@@ -112,9 +125,11 @@ export default class DreamTeam extends Component<
             </Picker>
             {this.state.selectedDriver1 && (
               <Image
-                source={(Resources as Record<string, ImageSourcePropType>)[
-                  this.state.selectedDriver1
-                ]}
+                source={
+                  (Resources as Record<string, ImageSourcePropType>)[
+                    this.state.selectedDriver1
+                  ]
+                }
                 style={styles.image}
               />
             )}
@@ -126,7 +141,7 @@ export default class DreamTeam extends Component<
               style={styles.picker}
               selectedValue={this.state.selectedDriver2}
               onValueChange={this.handleDriver2Change}
-            >
+              numberOfLines={2}>
               <Picker.Item label="Select Driver" value={null} />
               {driverOptions.map((driver, index) => (
                 <Picker.Item
@@ -138,9 +153,11 @@ export default class DreamTeam extends Component<
             </Picker>
             {this.state.selectedDriver2 && (
               <Image
-                source={(Resources as Record<string, ImageSourcePropType>)[
-                  this.state.selectedDriver2
-                ]}
+                source={
+                  (Resources as Record<string, ImageSourcePropType>)[
+                    this.state.selectedDriver2
+                  ]
+                }
                 style={styles.image}
               />
             )}
@@ -154,10 +171,9 @@ export default class DreamTeam extends Component<
             <Picker
               style={styles.picker}
               selectedValue={this.state.selectedConstructor}
-              onValueChange={(itemValue) =>
-                this.setState({ selectedConstructor: itemValue })
-              }
-            >
+              onValueChange={(itemValue: any) =>
+                this.setState({selectedConstructor: itemValue})
+              }>
               <Picker.Item label="Select Constructor" value={null} />
               {constructorOptions.map((constructor, index) => (
                 <Picker.Item
@@ -169,9 +185,11 @@ export default class DreamTeam extends Component<
             </Picker>
             {this.state.selectedConstructor && (
               <Image
-                source={(Resources as Record<string, ImageSourcePropType>)[
-                  this.state.selectedConstructor
-                ]}
+                source={
+                  (Resources as Record<string, ImageSourcePropType>)[
+                    this.state.selectedConstructor
+                  ]
+                }
                 style={styles.image}
               />
             )}
@@ -186,7 +204,6 @@ export default class DreamTeam extends Component<
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
