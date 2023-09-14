@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {DriverStandingItem} from './DriverStandings';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Animated} from 'react-native';
 import {
   ALEXANDER_ALBON,
   ALFA_ROMEO_CAR,
@@ -46,9 +46,18 @@ interface DriverState {
 }
 
 export default class DriverDetails extends Component<DriverProps, DriverState> {
+  driverImageScale: Animated.Value;
+  driverImageOpacity: Animated.Value;
+  constructorImageScale: Animated.Value;
+  constructorImageOpacity: Animated.Value;
   constructor(props: DriverProps) {
     super(props);
     this.state = {driver: this.props.route.params.driver};
+
+    this.driverImageScale = new Animated.Value(0.5);
+    this.driverImageOpacity = new Animated.Value(0);
+    this.constructorImageScale = new Animated.Value(0.5);
+    this.constructorImageOpacity = new Animated.Value(0);
 
     props.navigation.setOptions({
       title: `${this.state.driver.Driver.familyName}`.toLocaleUpperCase(),
@@ -64,6 +73,28 @@ export default class DriverDetails extends Component<DriverProps, DriverState> {
     });
   }
   render() {
+    Animated.parallel([
+      Animated.timing(this.driverImageScale, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(this.driverImageOpacity, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(this.constructorImageScale, {
+        toValue: 1,
+        duration: 4000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(this.constructorImageOpacity, {
+        toValue: 1,
+        duration: 4000,
+        useNativeDriver: true,
+      }),
+    ]).start();
     const driver = this.state.driver;
     return (
       <View style={styles.viewContainer}>
@@ -100,8 +131,13 @@ export default class DriverDetails extends Component<DriverProps, DriverState> {
               {driver.Constructors[0].name}
             </Text>
           </View>
-          <Image
-            style={styles.driverImage}
+          <Animated.Image
+            style={[
+              styles.driverImage,
+              {
+                opacity: this.driverImageOpacity,
+              },
+            ]}
             source={getDriverImageById(driver.Driver.driverId)}
           />
         </View>
@@ -119,16 +155,26 @@ export default class DriverDetails extends Component<DriverProps, DriverState> {
             <Text style={styles.positionNumber}> {driver.position}º</Text>
             <Text style={styles.driverPoints}> {driver.points} PTS</Text>
           </View>
-          <Image
-            style={styles.constructorCarImage}
+          <Animated.Image
+            style={[
+              styles.constructorCarImage,
+              {
+                opacity: this.constructorImageOpacity,
+              },
+            ]}
             source={getConstructorCarById(driver.Constructors[0].constructorId)}
           />
         </View>
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>BIO</Text>
           <View style={styles.seasonDetails}>
-            <Image
-              style={styles.countryFlag}
+            <Animated.Image
+              style={[
+                styles.countryFlag,
+                {
+                  opacity: this.constructorImageOpacity,
+                },
+              ]}
               source={{
                 uri:
                   'https://flagsapi.com/' +
