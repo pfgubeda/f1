@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {DriverStandingItem} from './DriverStandings';
-import {View, Text, StyleSheet, Image, Animated} from 'react-native';
+import {View, Text, StyleSheet, Animated} from 'react-native';
 import {
   ALEXANDER_ALBON,
   ALFA_ROMEO_CAR,
