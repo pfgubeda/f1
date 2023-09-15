@@ -90,29 +90,37 @@ export default class DreamTeam extends Component<
 
   storeData = async () => {
     try {
-      if (this.state.selectedDriver1) {
-        await AsyncStorage.setItem(
-          'selectedDriver1',
-          this.state.selectedDriver1,
-        );
+      if(this.state.selectedDriver1 == null || this.state.selectedDriver2 == null || this.state.selectedConstructor == null){
+        Toast.show({
+          type: 'error',
+          text1: 'Select two drivers and the constructor',
+          position: 'bottom',
+        });
+      }else{
+        if (this.state.selectedDriver1) {
+          await AsyncStorage.setItem(
+            'selectedDriver1',
+            this.state.selectedDriver1,
+          );
+        }
+        if (this.state.selectedDriver2) {
+          await AsyncStorage.setItem(
+            'selectedDriver2',
+            this.state.selectedDriver2,
+          );
+        }
+        if (this.state.selectedConstructor) {
+          await AsyncStorage.setItem(
+            'selectedConstructor',
+            this.state.selectedConstructor,
+          );
+        }
+        Toast.show({
+          type: 'success',
+          text1: 'Dream Team saved 🏁',
+          position: 'bottom',
+        });
       }
-      if (this.state.selectedDriver2) {
-        await AsyncStorage.setItem(
-          'selectedDriver2',
-          this.state.selectedDriver2,
-        );
-      }
-      if (this.state.selectedConstructor) {
-        await AsyncStorage.setItem(
-          'selectedConstructor',
-          this.state.selectedConstructor,
-        );
-      }
-      Toast.show({
-        type: 'success',
-        text1: 'Dream Team saved 🏁',
-        position: 'bottom',
-      });
     } catch (error) {
       Toast.show({
         type: 'error',
