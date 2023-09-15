@@ -6,11 +6,13 @@ import {
   Image,
   ImageSourcePropType,
   Alert,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 
 import * as Resources from './Resources';
 import {Picker} from '@react-native-picker/picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 interface DreamTeamProps {
   readonly navigation: any;
@@ -35,9 +37,31 @@ export default class DreamTeam extends Component<
       selectedConstructor: null,
     };
 
+    this.loadStoredData();
+
     props.navigation.setOptions({
       headerShown: true,
     });
+  }
+
+  async loadStoredData() {
+    try {
+      const selectedDriver1 = await AsyncStorage.getItem('selectedDriver1');
+      const selectedDriver2 = await AsyncStorage.getItem('selectedDriver2');
+      const selectedConstructor = await AsyncStorage.getItem('selectedConstructor');
+
+      if (selectedDriver1 !== null) {
+        this.setState({ selectedDriver1 });
+      }
+      if (selectedDriver2 !== null) {
+        this.setState({ selectedDriver2 });
+      }
+      if (selectedConstructor !== null) {
+        this.setState({ selectedConstructor });
+      }
+    } catch (error) {
+      console.error('Error al cargar datos desde AsyncStorage:', error);
+    }
   }
 
   handleDriver1Change = (itemValue: string | null) => {
@@ -59,6 +83,23 @@ export default class DreamTeam extends Component<
       } else {
         Alert.alert('Warning!', 'This driver has been already chosen');
       }
+    }
+  };
+
+  storeData = async () => {
+    try {
+      if (this.state.selectedDriver1) {
+        await AsyncStorage.setItem('selectedDriver1', this.state.selectedDriver1);
+      }
+      if (this.state.selectedDriver2) {
+        await AsyncStorage.setItem('selectedDriver2', this.state.selectedDriver2);
+      }
+      if (this.state.selectedConstructor) {
+        await AsyncStorage.setItem('selectedConstructor', this.state.selectedConstructor);
+      }
+      console.log('Datos guardados correctamente en AsyncStorage.');
+    } catch (error) {
+      console.error('Error al guardar datos en AsyncStorage:', error);
     }
   };
 
@@ -197,8 +238,10 @@ export default class DreamTeam extends Component<
         </View>
 
         {/* Botón de guardar */}
-        <TouchableOpacity style={styles.saveButton}>
-          <Text style={styles.saveButtonText}>Save Dream Team</Text>
+        <TouchableOpacity
+          style={styles.saveButton}
+          onPress={this.storeData}>
+          <Text style={styles.saveButtonText}>Guardar Dream Team</Text>
         </TouchableOpacity>
       </View>
     );
