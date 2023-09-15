@@ -6,13 +6,12 @@ import {
   Image,
   ImageSourcePropType,
   Alert,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 
 import * as Resources from './Resources';
 import {Picker} from '@react-native-picker/picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 
 interface DreamTeamProps {
   readonly navigation: any;
@@ -48,16 +47,18 @@ export default class DreamTeam extends Component<
     try {
       const selectedDriver1 = await AsyncStorage.getItem('selectedDriver1');
       const selectedDriver2 = await AsyncStorage.getItem('selectedDriver2');
-      const selectedConstructor = await AsyncStorage.getItem('selectedConstructor');
+      const selectedConstructor = await AsyncStorage.getItem(
+        'selectedConstructor',
+      );
 
       if (selectedDriver1 !== null) {
-        this.setState({ selectedDriver1 });
+        this.setState({selectedDriver1});
       }
       if (selectedDriver2 !== null) {
-        this.setState({ selectedDriver2 });
+        this.setState({selectedDriver2});
       }
       if (selectedConstructor !== null) {
-        this.setState({ selectedConstructor });
+        this.setState({selectedConstructor});
       }
     } catch (error) {
       console.error('Error al cargar datos desde AsyncStorage:', error);
@@ -89,13 +90,22 @@ export default class DreamTeam extends Component<
   storeData = async () => {
     try {
       if (this.state.selectedDriver1) {
-        await AsyncStorage.setItem('selectedDriver1', this.state.selectedDriver1);
+        await AsyncStorage.setItem(
+          'selectedDriver1',
+          this.state.selectedDriver1,
+        );
       }
       if (this.state.selectedDriver2) {
-        await AsyncStorage.setItem('selectedDriver2', this.state.selectedDriver2);
+        await AsyncStorage.setItem(
+          'selectedDriver2',
+          this.state.selectedDriver2,
+        );
       }
       if (this.state.selectedConstructor) {
-        await AsyncStorage.setItem('selectedConstructor', this.state.selectedConstructor);
+        await AsyncStorage.setItem(
+          'selectedConstructor',
+          this.state.selectedConstructor,
+        );
       }
       console.log('Datos guardados correctamente en AsyncStorage.');
     } catch (error) {
@@ -151,10 +161,11 @@ export default class DreamTeam extends Component<
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Driver 1</Text>
             <Picker
-              style={styles.picker}
+              style={styles.pickerDriver}
               selectedValue={this.state.selectedDriver1}
               onValueChange={this.handleDriver1Change}
-              numberOfLines={2}>
+              numberOfLines={2}
+              itemStyle={styles.pickerDriverItem}>
               <Picker.Item label="Select Driver" value={null} />
               {driverOptions.map((driver, index) => (
                 <Picker.Item
@@ -179,10 +190,11 @@ export default class DreamTeam extends Component<
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Driver 2</Text>
             <Picker
-              style={styles.picker}
+              style={styles.pickerDriver}
               selectedValue={this.state.selectedDriver2}
               onValueChange={this.handleDriver2Change}
-              numberOfLines={2}>
+              numberOfLines={2}
+              itemStyle={styles.pickerDriverItem}>
               <Picker.Item label="Select Driver" value={null} />
               {driverOptions.map((driver, index) => (
                 <Picker.Item
@@ -210,11 +222,12 @@ export default class DreamTeam extends Component<
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Constructor</Text>
             <Picker
-              style={styles.picker}
+              style={styles.pickerConstructor}
               selectedValue={this.state.selectedConstructor}
               onValueChange={(itemValue: any) =>
                 this.setState({selectedConstructor: itemValue})
-              }>
+              }
+              itemStyle={styles.pickerConstructorItem}>
               <Picker.Item label="Select Constructor" value={null} />
               {constructorOptions.map((constructor, index) => (
                 <Picker.Item
@@ -238,9 +251,7 @@ export default class DreamTeam extends Component<
         </View>
 
         {/* Botón de guardar */}
-        <TouchableOpacity
-          style={styles.saveButton}
-          onPress={this.storeData}>
+        <TouchableOpacity style={styles.saveButton} onPress={this.storeData}>
           <Text style={styles.saveButtonText}>Guardar Dream Team</Text>
         </TouchableOpacity>
       </View>
@@ -254,10 +265,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 20,
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: 'Formula1-Display-Bold',
     marginBottom: 20,
   },
   row: {
@@ -269,10 +281,11 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
     marginLeft: 10,
+    alignItems: 'center',
   },
   label: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'Formula1-Display-Regular',
     marginBottom: 8,
   },
   image: {
@@ -280,13 +293,35 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: 'contain',
   },
-  picker: {
+  pickerDriver: {
     backgroundColor: '#e0e0e0',
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#ccc',
     paddingHorizontal: 10,
     paddingVertical: 5,
+    height: 100,
+    width: '90%',
+  },
+  pickerConstructor: {
+    backgroundColor: '#e0e0e0',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    height: 150,
+    width: '80%',
+  },
+  pickerConstructorItem: {
+    fontSize: 20,
+    height: 150,
+    fontFamily: 'Formula1-Display-Bold',
+  },
+  pickerDriverItem: {
+    fontSize: 14,
+    fontFamily: 'Formula1-Display-Regular',
+    height: 100,
   },
   saveButton: {
     backgroundColor: '#007BFF',
