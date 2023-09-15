@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable react-native/no-inline-styles */
 import React, {Fragment} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
@@ -15,6 +17,8 @@ import RaceDetails from './components/schedule/RaceDetails';
 import UpcomingSchedule from './components/schedule/UpcomingSchedule';
 import PastSchedule from './components/schedule/PastSchedule';
 import DreamTeam from './components/DreamTeam';
+
+import Toast from 'react-native-toast-message';
 
 const styles = StyleSheet.create({
   container: {
@@ -169,6 +173,7 @@ const App = () => {
             />
           </Tab.Navigator>
         </NavigationContainer>
+        <Toast />
       </SafeAreaView>
     </Fragment>
   );

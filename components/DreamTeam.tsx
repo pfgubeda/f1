@@ -12,6 +12,7 @@ import {
 import * as Resources from './Resources';
 import {Picker} from '@react-native-picker/picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message';
 
 interface DreamTeamProps {
   readonly navigation: any;
@@ -107,9 +108,41 @@ export default class DreamTeam extends Component<
           this.state.selectedConstructor,
         );
       }
-      console.log('Datos guardados correctamente en AsyncStorage.');
+      Toast.show({
+        type: 'success',
+        text1: 'Dream Team saved 🏁',
+        position: 'bottom',
+      });
     } catch (error) {
-      console.error('Error al guardar datos en AsyncStorage:', error);
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'An error has occurred while saving your Dream Team',
+      });
+    }
+  };
+
+  clearData = async () => {
+    try {
+      await AsyncStorage.removeItem('selectedDriver1');
+      await AsyncStorage.removeItem('selectedDriver2');
+      await AsyncStorage.removeItem('selectedConstructor');
+      this.setState({
+        selectedDriver1: null,
+        selectedDriver2: null,
+        selectedConstructor: null,
+      });
+      Toast.show({
+        type: 'success',
+        text1: 'Dream Team cleared',
+        position: 'bottom',
+      });
+    } catch (error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'An error has occurred while clearing your Dream Team',
+      });
     }
   };
 
@@ -252,7 +285,11 @@ export default class DreamTeam extends Component<
 
         {/* Botón de guardar */}
         <TouchableOpacity style={styles.saveButton} onPress={this.storeData}>
-          <Text style={styles.saveButtonText}>Guardar Dream Team</Text>
+          <Text style={styles.saveButtonText}>Save Dream Team</Text>
+        </TouchableOpacity>
+        {/* Botón de borrar */}
+        <TouchableOpacity style={styles.deleteButton} onPress={this.clearData}>
+          <Text style={styles.saveButtonText}>Clear Dream Team</Text>
         </TouchableOpacity>
       </View>
     );
@@ -327,11 +364,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#007BFF',
     borderRadius: 8,
     padding: 10,
-    marginTop: 20,
   },
   saveButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 18,
+    color: '#fff',
+    fontSize: 20,
+    fontFamily: 'Formula1-Display-Bold',
+  },
+  deleteButton: {
+    backgroundColor: '#ff232b',
+    borderRadius: 8,
+    padding: 10,
+    marginTop: 20,
   },
 });
