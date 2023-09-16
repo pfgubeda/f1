@@ -78,7 +78,6 @@ export default class RaceDetails extends Component<RaceProps, RaceState> {
     const raceDate = new Date(race.date);
     const raceTime = race.time.split(':');
     raceDate.setUTCHours(+raceTime[0]);
-    console.log(raceDate);
 
     var raceEndDate = new Date(race.date);
     raceEndDate.setUTCHours(+raceTime[0] + 2);
@@ -94,10 +93,11 @@ export default class RaceDetails extends Component<RaceProps, RaceState> {
         type: 'success',
         text1: 'Added to calendar 📆',
       });
-    } catch (e) {
+    } catch (e: any) {
       Toast.show({
         type: 'error',
         text1: 'Error adding to calendar',
+        text2: e.message,
       });
     }
   };
