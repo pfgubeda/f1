@@ -83,16 +83,23 @@ export default class RaceDetails extends Component<RaceProps, RaceState> {
     var raceEndDate = new Date(race.date);
     raceEndDate.setUTCHours(+raceTime[0] + 2);
 
-    await CalendarManager.addEvent(
-      race.raceName,
-      raceDate.toISOString(),
-      raceEndDate.toISOString(),
-      race.Circuit.Location.locality,
-    );
-    Toast.show({
-      type: 'success',
-      text1: 'Added to calendar 📆',
-    });
+    try {
+      await CalendarManager.addEvent(
+        race.raceName,
+        raceDate.toISOString(),
+        raceEndDate.toISOString(),
+        race.Circuit.Location.locality,
+      );
+      Toast.show({
+        type: 'success',
+        text1: 'Added to calendar 📆',
+      });
+    } catch (e) {
+      Toast.show({
+        type: 'error',
+        text1: 'Error adding to calendar',
+      });
+    }
   };
 
   render() {
