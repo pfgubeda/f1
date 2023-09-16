@@ -14,6 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1E8A3FAADB10464A8423B1CC /* Formula1-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B349C5AD1C745AABE69E9D6 /* Formula1-Black.ttf */; };
 		4283B7E09E0A4D1AB30090A4 /* Formula1-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40B85EC5540A4F4BB8E25958 /* Formula1-Italic.ttf */; };
+		65DE07ED2AB5B06D0066D03A /* PablosCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DE07EC2AB5B06D0066D03A /* PablosCalendarManager.m */; };
 		6DE1631BE0944A2B81ACDB20 /* Formula1-Bold_web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BAC0658CE6D492986623FF0 /* Formula1-Bold_web.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-PablosF1-PablosF1Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-PablosF1-PablosF1Tests.a */; };
 		7C42616FD1234F1E83DB1E2F /* Formula1-Regular-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92EFC00041FE464087A418B1 /* Formula1-Regular-1.ttf */; };
@@ -50,6 +51,8 @@
 		5709B34CF0A7D63546082F79 /* Pods-PablosF1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PablosF1.release.xcconfig"; path = "Target Support Files/Pods-PablosF1/Pods-PablosF1.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-PablosF1-PablosF1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PablosF1-PablosF1Tests.debug.xcconfig"; path = "Target Support Files/Pods-PablosF1-PablosF1Tests/Pods-PablosF1-PablosF1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-PablosF1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PablosF1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65DE07EB2AB5B06D0066D03A /* PablosCalendarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PablosCalendarManager.h; path = PablosF1/PablosCalendarManager.h; sourceTree = "<group>"; };
+		65DE07EC2AB5B06D0066D03A /* PablosCalendarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PablosCalendarManager.m; path = PablosF1/PablosCalendarManager.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = PablosF1/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-PablosF1-PablosF1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PablosF1-PablosF1Tests.release.xcconfig"; path = "Target Support Files/Pods-PablosF1-PablosF1Tests/Pods-PablosF1-PablosF1Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8CC87D9457BF459B99581F4A /* Formula1-Bold-4.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Formula1-Bold-4.ttf"; path = "../assets/fonts/Formula1-Bold-4.ttf"; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				65DE07EB2AB5B06D0066D03A /* PablosCalendarManager.h */,
+				65DE07EC2AB5B06D0066D03A /* PablosCalendarManager.m */,
 			);
 			name = PablosF1;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				65DE07ED2AB5B06D0066D03A /* PablosCalendarManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

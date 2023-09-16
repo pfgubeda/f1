@@ -90,13 +90,17 @@ export default class DreamTeam extends Component<
 
   storeData = async () => {
     try {
-      if(this.state.selectedDriver1 == null || this.state.selectedDriver2 == null || this.state.selectedConstructor == null){
+      if (
+        this.state.selectedDriver1 == null ||
+        this.state.selectedDriver2 == null ||
+        this.state.selectedConstructor == null
+      ) {
         Toast.show({
           type: 'error',
           text1: 'Select two drivers and the constructor',
           position: 'bottom',
         });
-      }else{
+      } else {
         if (this.state.selectedDriver1) {
           await AsyncStorage.setItem(
             'selectedDriver1',

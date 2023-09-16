@@ -1,6 +1,16 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React, {Component} from 'react';
 import {RaceItem} from './Schedule';
-import {Button, Image, Linking, StyleSheet, Text, View} from 'react-native';
+import {
+  Button,
+  Image,
+  Linking,
+  NativeModules,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+} from 'react-native';
 import {
   AUSTRALIA,
   AUSTRIA,
@@ -25,6 +35,8 @@ import {
   UNITED_STATES,
   VEGAS,
 } from '../Resources';
+import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import Toast from 'react-native-toast-message';
 
 interface RaceProps {
   readonly navigation: any;
@@ -51,8 +63,38 @@ export default class RaceDetails extends Component<RaceProps, RaceState> {
         fontFamily: 'Formula1-Display-Bold',
       },
       headerBackTitle: 'Racing',
+      headerRight: () => (
+        <TouchableHighlight onPress={this.addRaceToCalendar}>
+          <FontAwesome5Icon style={styles.topBarIcon} name="calendar-plus" />
+        </TouchableHighlight>
+      ),
     });
   }
+
+  addRaceToCalendar = async () => {
+    const race = this.state.race;
+    const CalendarManager = NativeModules.CalendarManager;
+
+    const raceDate = new Date(race.date);
+    const raceTime = race.time.split(':');
+    raceDate.setUTCHours(+raceTime[0]);
+    console.log(raceDate);
+
+    var raceEndDate = new Date(race.date);
+    raceEndDate.setUTCHours(+raceTime[0] + 2);
+
+    await CalendarManager.addEvent(
+      race.raceName,
+      raceDate.toISOString(),
+      raceEndDate.toISOString(),
+      race.Circuit.Location.locality,
+    );
+    Toast.show({
+      type: 'success',
+      text1: 'Added to calendar 📆',
+    });
+  };
+
   render() {
     const race = this.state.race;
     return (
@@ -200,5 +242,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Formula1-Display-Bold',
     padding: 5,
+  },
+  topBarIcon: {
+    fontSize: 20,
+    color: '#fff',
+    marginRight: 15,
   },
 });
