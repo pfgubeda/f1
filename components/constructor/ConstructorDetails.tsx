@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {ConstructorStandingItem} from './ConstructorStandings';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Animated} from 'react-native';
 import {
   RED_BULL_CAR,
   MERCEDES_CAR,
@@ -37,9 +37,19 @@ export default class ConstructorDetails extends Component<
   ConstructorProps,
   ConstructorState
 > {
+  carImageScale: Animated.Value;
+  flagImageOpacity: Animated.Value;
+  constructorImageScale: Animated.Value;
+  constructorImageOpacity: Animated.Value;
+
   constructor(props: ConstructorProps) {
     super(props);
     this.state = {constructor: this.props.route.params.constructor};
+
+    this.carImageScale = new Animated.Value(0.5);
+    this.flagImageOpacity = new Animated.Value(0);
+    this.constructorImageScale = new Animated.Value(0.5);
+    this.constructorImageOpacity = new Animated.Value(0);
 
     props.navigation.setOptions({
       title: `${this.state.constructor.Constructor.name}`.toLocaleUpperCase(),
@@ -55,13 +65,41 @@ export default class ConstructorDetails extends Component<
     });
   }
   render() {
+    Animated.parallel([
+      Animated.timing(this.carImageScale, {
+        toValue: 1,
+        duration: 4000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(this.flagImageOpacity, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(this.constructorImageScale, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(this.constructorImageOpacity, {
+        toValue: 1,
+        duration: 4000,
+        useNativeDriver: true,
+      }),
+    ]).start();
     const constructor = this.state.constructor;
     return (
       <View style={styles.viewContainer}>
         <View style={styles.constructorHeader}>
           <View style={styles.constructorHeaderLogo}>
-            <Image
-              style={styles.constructorLogo}
+            <Animated.Image
+              style={[
+                styles.constructorLogo,
+                {
+                  opacity: this.constructorImageOpacity,
+                  transform: [{scale: this.constructorImageScale}],
+                },
+              ]}
               source={getConstructorLogoById(
                 constructor.Constructor.constructorId,
               )}
@@ -81,8 +119,8 @@ export default class ConstructorDetails extends Component<
             </Text>
           </View>
           <View style={styles.flagImageBlock}>
-            <Image
-              style={styles.flagImage}
+            <Animated.Image
+              style={[styles.flagImage, {opacity: this.flagImageOpacity}]}
               source={{
                 uri:
                   'https://flagsapi.com/' +
@@ -100,8 +138,11 @@ export default class ConstructorDetails extends Component<
             <Text style={styles.positionNumber}> {constructor.position}º</Text>
             <Text style={styles.driverPoints}> {constructor.points} PTS</Text>
           </View>
-          <Image
-            style={styles.constructorCarImage}
+          <Animated.Image
+            style={[
+              styles.constructorCarImage,
+              {transform: [{scale: this.carImageScale}]},
+            ]}
             source={getConstructorCarById(
               constructor.Constructor.constructorId,
             )}

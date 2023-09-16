@@ -136,6 +136,7 @@ export default class DriverDetails extends Component<DriverProps, DriverState> {
               styles.driverImage,
               {
                 opacity: this.driverImageOpacity,
+                transform: [{scale: this.constructorImageScale}],
               },
             ]}
             source={getDriverImageById(driver.Driver.driverId)}
@@ -160,6 +161,7 @@ export default class DriverDetails extends Component<DriverProps, DriverState> {
               styles.constructorCarImage,
               {
                 opacity: this.constructorImageOpacity,
+                transform: [{scale: this.constructorImageScale}],
               },
             ]}
             source={getConstructorCarById(driver.Constructors[0].constructorId)}
@@ -173,6 +175,7 @@ export default class DriverDetails extends Component<DriverProps, DriverState> {
                 styles.countryFlag,
                 {
                   opacity: this.constructorImageOpacity,
+                  transform: [{scale: this.constructorImageScale}],
                 },
               ]}
               source={{
