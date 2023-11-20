@@ -6,6 +6,7 @@ App desarrollada en React Native 0.72 (typescript)
 
 - git clone https://github.com/pfgubeda/f1.git
 - npm i
+- cd ios & pod install
 - npm run ios (lo ejecuta por defecto en el simulador de iPhone 14 Pro Max, si se desea otro hay que modificar el script 'ios' del package.json)
 - npm run android (no probado aún)
 
